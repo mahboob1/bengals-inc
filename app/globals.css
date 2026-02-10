@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-white text-gray-900 antialiased;
+}
+
+h1, h2, h3 {
+  @apply tracking-tight;
+}
+
+p {
+  @apply leading-relaxed;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

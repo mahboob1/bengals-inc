@@ -86,13 +86,6 @@ export default function TechnologyPage() {
           ))}
         </div>
       </Section>
-
-      {/* Footer */}
-      <Section>
-        <div className="text-center text-gray-500 text-sm">
-          © 2026 Bengals Inc. All rights reserved.
-        </div>
-      </Section>
     </main>
   );
 }

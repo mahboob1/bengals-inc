@@ -46,11 +46,11 @@ const techColumns = [
 
 export default function TechnologyPage() {
   return (
-    <main className="space-y-16">
+    <main>
       {/* Hero Section */}
       <Section>
-        <div className="max-w-3xl space-y-6">
-          <h1 className="text-4xl font-semibold tracking-tight">
+        <div className="max-w-3xl mx-auto text-center space-y-6">
+          <h1 className="text-5xl font-bold tracking-tight">
             Technology built for intelligent systems at scale
           </h1>
 
@@ -60,24 +60,31 @@ export default function TechnologyPage() {
             systems, and cloud-native infrastructure.
           </p>
 
-          <Button href="/contact">Get in touch</Button>
+          <div className="flex justify-center gap-4">
+            <Button href="/contact">Get in touch</Button>
+            <Button href="/" variant="secondary">
+              Back to Home
+            </Button>
+          </div>
         </div>
       </Section>
 
-      {/* Tech Columns */}
+      {/* Technology Grid */}
       <Section>
         <div className="max-w-7xl mx-auto grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {techColumns.map((col) => (
             <div
               key={col.title}
-              className="space-y-4 p-6 rounded-xl hover:shadow-lg hover:bg-gray-50 transition cursor-pointer"
+              className="space-y-4 p-6 rounded-2xl border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 bg-white"
             >
               <div className="flex items-center gap-3">
                 {col.icon}
-                <h2 className="text-xl font-semibold">{col.title}</h2>
+                <h2 className="text-xl font-semibold">
+                  {col.title}
+                </h2>
               </div>
 
-              <ul className="list-disc list-inside text-gray-700 space-y-1">
+              <ul className="list-disc list-inside text-gray-700 space-y-2 text-sm">
                 {col.items.map((item) => (
                   <li key={item}>{item}</li>
                 ))}

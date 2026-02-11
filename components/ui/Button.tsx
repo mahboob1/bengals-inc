@@ -1,27 +1,23 @@
-import { ReactNode } from "react";
+import Link from "next/link";
 
-type ButtonProps = {
-  children: ReactNode;
-  href?: string;
+interface ButtonProps {
+  href: string;
+  children: React.ReactNode;
   variant?: "primary" | "secondary";
-};
+}
 
-export default function Button({
-  children,
-  href = "#",
-  variant = "primary",
-}: ButtonProps) {
-  const base =
-    "inline-flex items-center rounded-full px-6 py-2.5 text-sm font-medium transition";
+export default function Button({ href, children, variant = "primary" }: ButtonProps) {
+  const baseStyles =
+    "inline-flex items-center rounded-full px-6 py-2.5 text-sm font-medium transition-all duration-300 ease-in-out";
 
-  const styles = {
-    primary: "bg-black text-white hover:bg-gray-800",
-    secondary: "border hover:bg-gray-50",
-  };
+  const styles =
+    variant === "primary"
+      ? `${baseStyles} bg-black text-white hover:bg-gray-800 hover:scale-105 shadow-md hover:shadow-lg`
+      : `${baseStyles} border border-gray-300 text-gray-700 hover:bg-gray-50 hover:scale-105 hover:shadow-md`;
 
   return (
-    <a href={href} className={`${base} ${styles[variant]}`}>
+    <Link href={href} className={styles}>
       {children}
-    </a>
+    </Link>
   );
 }

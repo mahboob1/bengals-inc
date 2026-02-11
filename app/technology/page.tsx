@@ -1,132 +1,98 @@
+import Section from "@/components/Section";
+import Button from "@/components/ui/Button";
+import { FaRobot, FaCloud, FaMicrochip, FaLayerGroup } from "react-icons/fa";
+
+const techColumns = [
+  {
+    title: "AI & Machine Learning",
+    icon: <FaRobot className="text-3xl text-blue-600" />,
+    items: [
+      "Large Language Models: OpenAI, Gemini, Claude, open-source LLMs, prompt engineering, fine-tuning, evaluation.",
+      "Agentic Systems: Tool-using agents, planners, memory, multi-agent coordination, MCP-based architectures.",
+      "Embeddings & Retrieval: Vector databases, semantic search, RAG pipelines, hybrid retrieval strategies.",
+      "Data & Labeling: Dataset curation, labeling workflows, quality control, feedback loops.",
+      "Learning Foundations: Neural networks, backpropagation, gradient descent, feature extraction, model optimization.",
+    ],
+  },
+  {
+    title: "Cloud & Infrastructure",
+    icon: <FaCloud className="text-3xl text-blue-600" />,
+    items: [
+      "Cloud Platforms: AWS, Azure, GCP with multi-account and multi-region strategies.",
+      "Infrastructure as Code: Terraform, CloudFormation, automated provisioning and drift control.",
+      "Containers & Orchestration: Docker, Kubernetes, service meshes, CI/CD pipelines.",
+      "Reliability & Observability: Logging, metrics, tracing, alerting, cost optimization.",
+    ],
+  },
+  {
+    title: "IoT, Edge & Data Pipelines",
+    icon: <FaMicrochip className="text-3xl text-blue-600" />,
+    items: [
+      "IoT Integration: Secure device onboarding, telemetry ingestion, real-time processing.",
+      "Streaming Systems: Event-driven architectures, message queues, asynchronous processing.",
+      "Data Platforms: Warehouses, feature stores, analytics-ready pipelines.",
+    ],
+  },
+  {
+    title: "Architecture Philosophy",
+    icon: <FaLayerGroup className="text-3xl text-blue-600" />,
+    items: [
+      "Modular: Clear service boundaries, replaceable components, composable systems.",
+      "Secure: Least-privilege access, identity-first design, compliance-aware architecture.",
+      "Scalable: Horizontally scalable services, async workflows, cloud-native primitives.",
+    ],
+  },
+];
+
 export default function TechnologyPage() {
   return (
-    <main className="mx-auto max-w-7xl px-6 py-24 space-y-32">
-      {/* Hero */}
-      <section className="space-y-6 max-w-3xl">
-        <h1 className="text-4xl font-semibold tracking-tight">
-          Technology built for intelligent systems at scale
-        </h1>
-        <p className="text-lg text-gray-600">
-          Bengals Inc. designs and engineers AI-first platforms that move from
-          research to production—combining modern machine learning, agentic
-          systems, and cloud-native infrastructure.
-        </p>
-      </section>
+    <main className="space-y-16">
+      {/* Hero Section */}
+      <Section>
+        <div className="max-w-3xl space-y-6">
+          <h1 className="text-4xl font-semibold tracking-tight">
+            Technology built for intelligent systems at scale
+          </h1>
 
-      {/* AI & ML */}
-      <section className="grid md:grid-cols-2 gap-16">
-        <div>
-          <h2 className="text-2xl font-semibold">AI & Machine Learning</h2>
-          <p className="mt-4 text-gray-600">
-            We work across the full AI stack—from foundational learning theory
-            to applied large-scale systems.
+          <p className="text-lg text-gray-600">
+            Bengals Inc. designs and engineers AI-first platforms that move from
+            research to production—combining modern machine learning, agentic
+            systems, and cloud-native infrastructure.
           </p>
+
+          <Button href="/contact">Get in touch</Button>
         </div>
+      </Section>
 
-        <ul className="space-y-6 text-gray-700">
-          <li>
-            <strong>Large Language Models:</strong> OpenAI, Gemini, Claude,
-            open-source LLMs, prompt engineering, fine-tuning, evaluation.
-          </li>
-          <li>
-            <strong>Agentic Systems:</strong> Tool-using agents, planners,
-            memory, multi-agent coordination, MCP-based architectures.
-          </li>
-          <li>
-            <strong>Embeddings & Retrieval:</strong> Vector databases, semantic
-            search, RAG pipelines, hybrid retrieval strategies.
-          </li>
-          <li>
-            <strong>Data & Labeling:</strong> Dataset curation, labeling
-            workflows, quality control, feedback loops.
-          </li>
-          <li>
-            <strong>Learning Foundations:</strong> Neural networks, backpropagation,
-            gradient descent, feature extraction, model optimization.
-          </li>
-        </ul>
-      </section>
+      {/* Tech Columns */}
+      <Section>
+        <div className="max-w-7xl mx-auto grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+          {techColumns.map((col) => (
+            <div
+              key={col.title}
+              className="space-y-4 p-6 rounded-xl hover:shadow-lg hover:bg-gray-50 transition cursor-pointer"
+            >
+              <div className="flex items-center gap-3">
+                {col.icon}
+                <h2 className="text-xl font-semibold">{col.title}</h2>
+              </div>
 
-      {/* Cloud */}
-      <section className="grid md:grid-cols-2 gap-16">
-        <div>
-          <h2 className="text-2xl font-semibold">Cloud & Infrastructure</h2>
-          <p className="mt-4 text-gray-600">
-            Our systems are designed to be observable, secure, and scalable from
-            day one.
-          </p>
+              <ul className="list-disc list-inside text-gray-700 space-y-1">
+                {col.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
+      </Section>
 
-        <ul className="space-y-6 text-gray-700">
-          <li>
-            <strong>Cloud Platforms:</strong> AWS, Azure, GCP with multi-account
-            and multi-region strategies.
-          </li>
-          <li>
-            <strong>Infrastructure as Code:</strong> Terraform, CloudFormation,
-            automated provisioning and drift control.
-          </li>
-          <li>
-            <strong>Containers & Orchestration:</strong> Docker, Kubernetes,
-            service meshes, CI/CD pipelines.
-          </li>
-          <li>
-            <strong>Reliability & Observability:</strong> Logging, metrics,
-            tracing, alerting, cost optimization.
-          </li>
-        </ul>
-      </section>
-
-      {/* IoT & Data */}
-      <section className="grid md:grid-cols-2 gap-16">
-        <div>
-          <h2 className="text-2xl font-semibold">IoT, Edge & Data Pipelines</h2>
-          <p className="mt-4 text-gray-600">
-            We connect intelligent software with the physical world and
-            high-volume data streams.
-          </p>
+      {/* Footer */}
+      <Section>
+        <div className="text-center text-gray-500 text-sm">
+          © 2026 Bengals Inc. All rights reserved.
         </div>
-
-        <ul className="space-y-6 text-gray-700">
-          <li>
-            <strong>IoT Integration:</strong> Secure device onboarding, telemetry
-            ingestion, real-time processing.
-          </li>
-          <li>
-            <strong>Streaming Systems:</strong> Event-driven architectures,
-            message queues, asynchronous processing.
-          </li>
-          <li>
-            <strong>Data Platforms:</strong> Warehouses, feature stores,
-            analytics-ready pipelines.
-          </li>
-        </ul>
-      </section>
-
-      {/* Philosophy */}
-      <section className="max-w-4xl space-y-6">
-        <h2 className="text-2xl font-semibold">Architecture Philosophy</h2>
-        <p className="text-gray-600">
-          We design systems that are modular, secure, and evolvable—capable of
-          supporting rapid experimentation without sacrificing production
-          stability.
-        </p>
-
-        <ul className="grid sm:grid-cols-3 gap-6 text-sm text-gray-700">
-          <li>
-            <strong>Modular:</strong> Clear service boundaries, replaceable
-            components, composable systems.
-          </li>
-          <li>
-            <strong>Secure:</strong> Least-privilege access, identity-first
-            design, compliance-aware architecture.
-          </li>
-          <li>
-            <strong>Scalable:</strong> Horizontally scalable services, async
-            workflows, cloud-native primitives.
-          </li>
-        </ul>
-      </section>
+      </Section>
     </main>
   );
 }

@@ -1,3 +1,5 @@
+import Section from "@/components/Section";
+
 const features = [
   {
     title: "Agentic AI Systems",
@@ -19,15 +21,15 @@ const features = [
 
 export default function FeatureGrid() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24">
+    <Section>
       <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
         {features.map((f) => (
-          <div key={f.title}>
+          <div key={f.title} className="space-y-3">
             <h3 className="text-lg font-semibold">{f.title}</h3>
-            <p className="mt-3 text-gray-600 text-sm">{f.desc}</p>
+            <p className="text-sm text-gray-600">{f.desc}</p>
           </div>
         ))}
       </div>
-    </section>
+    </Section>
   );
 }
